@@ -1,0 +1,10 @@
+// Button
+// ------------------------------
+.btn {
+  padding: 14px 45px;
+}
+
+.btn:focus,
+button:focus {
+  outline: none !important;
+}

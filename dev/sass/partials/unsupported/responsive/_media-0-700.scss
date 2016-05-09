@@ -1,0 +1,35 @@
+@media only screen and (min-width: 0) and (max-width: 710px) {
+  .wrap {
+    padding: 4% 8%;
+
+    .left {
+      float: left;
+      width: 100%;
+      color: $color-white;
+
+      h1 {
+        color: $color-white;
+        font-size: 80px;
+        margin: 0;
+        padding: 0;
+      }
+
+      h2 {
+        color: $color-yellow;
+        font-size: 36px;
+      }
+
+      div {
+        color: $color-white;
+        font-size: 30px;
+      }
+    }
+  }
+
+  .right {
+    float: left;
+    margin-bottom: 50px;
+    margin-left: 0;
+    margin-right: 20px;
+  }
+}

@@ -1,0 +1,46 @@
+body,
+html {
+  background-color: $color-saber-green;
+  font-family: $font-family-default;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.wrap {
+  padding: 4%;
+
+  .left {
+    float: left;
+    width: 100%;
+    color: $color-white;
+
+    h1 {
+      color: $color-white;
+      font-size: 90px;
+    }
+
+    h2 {
+      color: $color-yellow;
+      font-size: 40px;
+    }
+
+    div {
+      color: $color-white;
+      font-size: 30px;
+    }
+  }
+}
+
+.right {
+  float: right;
+  width: 320px; /* or whatever width you want */
+  background-image: url('../img/SaberLogo2.svg');
+  background-position: cover;
+  background-repeat: no-repeat;
+  height: 320px;
+  margin-left: 20px;
+  border: 1px solid $color-black;
+  box-shadow: 0 6px 12px $color-boxshadow;
+}

@@ -1,0 +1,21 @@
+// GLOBAL COLOR VARIABLES
+
+// Saber brand colors
+$color-saber-green: rgb(0, 122, 82);
+$color-saber-grey: rgb(190, 190, 190);
+
+// Generic colors
+$color-transparent: rgba(0, 0, 0, 0);
+$color-black: rgb(0, 0, 0);
+$color-black-50: rgba(0, 0, 0, .5);
+$color-white: rgb(255, 255, 255);
+$color-white-50: rgba(255, 255, 255, .5);
+$color-grey-dark: rgb(51, 51, 51);
+$color-green-dark: darken($color-saber-green, 4%);
+$color-green-light: lighten($color-saber-green, 4%);
+$color-yellow: rgb(255, 222, 0);
+
+// Specific Design Elements
+$color-boxshadow: rgba(0, 60, 20, .4);
+$main-slide-overlay: rgba(0, 20, 10, .3);
+$main-slide-black-bkgnd: rgba(0, 0, 0, .7);

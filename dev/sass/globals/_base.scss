@@ -1,0 +1,72 @@
+// ===============================
+//    Base Styles
+// ===============================
+body {
+  background-color: $color-white;
+  color: $color-grey-dark;
+  font-family: $font-family-default;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased !important;
+  font-weight: 400;
+  line-height: 30px;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+// link styles
+a {
+  color: $color-saber-green;
+}
+
+a,
+a > * {
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+}
+
+a:focus,
+a:hover {
+  color: $color-green-light;
+  outline: none;
+  text-decoration: none;
+}
+
+// Transition elements
+// ------------------------------
+.form-control,
+.navbar a {
+  transition: all .2s ease;
+}
+
+.btn,
+a {
+  transition: all .2s ease;
+}
+
+#qLpercentage {
+  font-family: $font-family2;
+  font-weight: 800;
+}
+
+// Reset Box Shadow
+.btn,
+.form-control,
+.form-control:focus,
+.form-control:hover,
+.navbar-custom .dropdown-menu {
+  box-shadow: none;
+}
+
+button:focus {
+  outline: none !important;
+}

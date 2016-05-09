@@ -1,0 +1,165 @@
+// ============================
+// Global Styles
+//===============================
+.section-padding {
+  padding: 100px 0 170px;
+}
+
+.morphext > .animated {
+  display: inline-block;
+}
+
+.section-title {
+  color: $color-grey-dark;
+  font-size: 42px;
+  letter-spacing: .2rem;
+  letter-spacing: 3px;
+  letter-spacing: 3px;
+  line-height: 30px;
+  margin-bottom: 50px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.section-title-left {
+  color: $color-grey-dark;
+  font-size: 30px;
+  letter-spacing: .2rem;
+  letter-spacing: 3px;
+  letter-spacing: 3px;
+  line-height: 30px;
+  margin-bottom: 50px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.section-title-left:after {
+  bottom: -15px;
+  content: '';
+  height: 4px;
+  left: 0;
+  position: absolute;
+  width: 65px;
+}
+
+.section-title:after {
+  bottom: -20px;
+  content: '';
+  height: 4px;
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  width: 65px;
+}
+
+.section-title-left::after,
+.section-title::after,
+.single-pricing-table .pricing-title h2::after {
+  background: $color-saber-green none repeat scroll 0 0;
+}
+
+.testimoinal-title {
+  color: $color-white;
+  line-height: 35px;
+}
+
+.row-content {
+  margin-top: 80px;
+}
+
+.sub-title {
+  font-size: 18px;
+  padding: 36px;
+}
+
+// custom margin classes
+
+// margin top
+.mt-30 {
+  margin-top: 30px;
+}
+
+.mt-50 {
+  margin-top: 50px;
+}
+
+.mt-80 {
+  margin-top: 80px;
+}
+
+.mt-100 {
+  margin-top: 100px;
+}
+
+// margin bottom
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.mb-60 {
+  margin-bottom: 60px;
+}
+
+.mb-80 {
+  margin-bottom: 80px;
+}
+
+// custom padding classes
+
+.no-padding {
+  padding: 0 !important;
+}
+
+// padding-bottom
+.pb-20 {
+  padding-bottom: 20px;
+}
+
+.pb-30 {
+  padding-bottom: 30px;
+}
+
+.pb-50 {
+  padding-bottom: 50px;
+}
+
+.pt-100 {
+  padding-top: 100px;
+}
+
+.pb-100 {
+  padding-bottom: 100px;
+}
+
+// padding top bottom
+.ptb-50 {
+  padding: 50px 0;
+}
+
+.ptb-90 {
+  padding: 90px 0;
+}
+
+.gutter {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
+// vertical middle align
+.vertical-middle {
+  left: 0;
+  padding: 0 15px;
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+  width: 100%;
+}
+
+// Post-Footer Clear
+// This is a fix to make sure that the sticky bottom footer doesn't cover
+// up any of the site content. Height is equal to footer height (font 100%).
+.post-footer-clear {
+  display: block;
+  font-size: 100%;
+}

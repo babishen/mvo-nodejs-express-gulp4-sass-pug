@@ -1,0 +1,42 @@
+doctype html
+html.no-js(lang='en')
+  head
+    // Site Title
+    title Site Title Goes Here | My Site
+
+    // Site Meta Info
+    meta(charset='utf-8')
+    meta(http-equiv='x-ua-compatible', content='ie=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='Some description text goes here to describe the site.')
+    meta(name='keywords', content='xxx, xxx, xxx, xxx, xxx')
+    meta(name='author', content='emveeoh.com')
+
+    // CSS Vendor Files
+    link(rel='stylesheet', href='css-vendor/font-awesome.min.css')
+
+    // CSS Custom Files
+    link(rel='stylesheet', href='css/index.min.css')
+
+    // Google Web Fonts
+    link(href='https://fonts.googleapis.com/css?family=Aldrich', rel='stylesheet', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Michroma', rel='stylesheet', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Syncopate', rel='stylesheet', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css')
+
+    // Javascript: Essential for page load JS Files
+    script(src='js-vendor/jquery-2.2.3.min.js')
+    script(src='js-vendor/modernizr-2.8.3.min.js')
+
+  body
+    // Header Start
+    include partials/index/partial.html
+
+
+    // Javascript: Vendor Files
+    // Bootstrap JS
+    script(src='bootstrap/js/bootstrap.min.js')
+
+
+    // Javascript: Custom
+    script(src='js/main.min.js')

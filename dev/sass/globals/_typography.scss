@@ -1,0 +1,45 @@
+// ============================
+//Typography
+//===============================
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $color-grey-dark;
+  font-family: $font-family1;
+  font-weight: 900;
+  margin: 0 0 15px;
+}
+
+h1 {
+  font-size: 50px;
+  line-height: 65px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 25px;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-size: 18px;
+  line-height: 20px;
+}
+
+//h5 {
+//}
+
+//h6 {
+//}
+
+//span {
+//  color: $color-saber-green;
+//}
