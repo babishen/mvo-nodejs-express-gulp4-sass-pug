@@ -14,6 +14,7 @@ var gulpIgnore = require('gulp-ignore')
 var gulpNSP = require('gulp-nsp')
 var gulpPath = require('./gulp/gulp-paths.js')
 var nodemon = require('gulp-nodemon')
+var ncu = require('npm-check-updates')
 var path = require('path')
 var plumber = require('gulp-plumber')
 var prefix = require('gulp-autoprefixer')
@@ -24,8 +25,32 @@ var uglifyJs = require('gulp-uglify')
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++ WATCH TASKS : +++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+function watch () {
+  gulp.watch(gulpPath.to.views.source, gulp.parallel('copy-views'))
+  gulp.watch(gulpPath.to.routes.source, gulp.parallel('copy-routes'))
+  gulp.watch(gulpPath.to.sass.source, gulp.parallel('sass'))
+  gulp.watch(gulpPath.to.js.source, gulp.parallel('js'))
+  gulp.watch(
+    [
+      gulpPath.to.img.source,
+      gulpPath.to.fonts.source,
+      gulpPath.to.cssvendor.source,
+      gulpPath.to.jsvendor.source
+    ], gulp.parallel(
+      [
+        'copy-img',
+        'copy-fonts',
+        'copy-css-vendor',
+        'copy-js-vendor'
+      ])
+  )
+}
+
+exports.watch = watch
+
 // [watch-views]
-gulp.task('watch-views', function () {
+gulp.task('OLD-watch-views', function () {
   var watcher = gulp.watch(gulpPath.to.views.source, gulp.series('copy-views'))
   watcher.on('change', function (path, stats) {
     console.log('File changed: ' + path)
@@ -33,7 +58,7 @@ gulp.task('watch-views', function () {
 })
 
 // [watch-routes]
-gulp.task('watch-routes', function () {
+gulp.task('OLD-watch-routes', function () {
   var watcher = gulp.watch(gulpPath.to.routes.source, gulp.series('copy-routes'))
   watcher.on('change', function (path, stats) {
     console.log('File changed: ' + path)
@@ -41,7 +66,7 @@ gulp.task('watch-routes', function () {
 })
 
 // [watch-sass]
-gulp.task('watch-sass', function () {
+gulp.task('OLD-watch-sass', function () {
   var watcher = gulp.watch(gulpPath.to.sass.source, gulp.series('sass'))
   watcher.on('change', function (path, stats) {
     console.log('File changed: ' + path)
@@ -49,7 +74,7 @@ gulp.task('watch-sass', function () {
 })
 
 // [watch-js]
-gulp.task('watch-js', function () {
+gulp.task('OLD-watch-js', function () {
   var watcher = gulp.watch(gulpPath.to.js.source, gulp.series('js'))
   watcher.on('change', function (path, stats) {
     console.log('File changed: ' + path)
@@ -57,7 +82,7 @@ gulp.task('watch-js', function () {
 })
 
 // [watch-assets]
-gulp.task('watch-assets', function () {
+gulp.task('OLD-watch-assets', function () {
   var watcher = gulp.watch(
     [
       gulpPath.to.img.source,
@@ -85,13 +110,14 @@ gulp.task('watch-assets', function () {
 gulp.task('browser-sync', function (cb) {
   browserSync.init({
     files: [gulpPath.to.projectRoot + '/**/*.*'],
+    reloadDebounce: 2000,
     proxy: 'http://localhost:3000',
     port: 5000,
     browser: ['google chrome canary'] // Default browser to open
   }, cb())
   // Set watch to automatically fresh browser when any of the sources changes
-  gulp.watch(gulpPath.to.publicRoot + '/**/*.*').on('change', browserSync.reload) // public
-  gulp.watch(gulpPath.to.routes.destination + '/**/*.*').on('change', browserSync.reload) // views
+  gulp.watch(gulpPath.to.publicRoot + '/**/*.*').on('change', browserSync.reload) // publicnpm
+  gulp.watch(gulpPath.to.routes.destination + '/**/*.*').on('change', browserSync.reload) // routes
   gulp.watch(gulpPath.to.views.destination + '/**/*.*').on('change', browserSync.reload) // views
 })
 
@@ -262,6 +288,7 @@ gulp.task('trash-routes', function () {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++ MISC TASKS : ++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 // [paths]
 // View gulp path obj data in console
 gulp.task('paths', function (cb) {
@@ -274,7 +301,7 @@ gulp.task('paths', function (cb) {
 // Use gulp-nsp to check for security vulnerabilites
 gulp.task('security', function (cb) {
   gulpNSP({
-    package: __dirname + '/package.json',
+    package: gulpPath.to.packageJson,
     output: 'summary'
   }, cb)
 })
@@ -282,8 +309,23 @@ gulp.task('security', function (cb) {
 // [security-msg]
 // Reminder message to run gulp security to check for bad modules
 gulp.task('security-msg', function (cb) {
-  console.log('====================================================================\n SECURITY REMINDER: Run [ gulp security ] before deployment.\n====================================================================')
+  console.log('====================================================================\n  REMINDER: Run [ gulp security ] before deployment.\n====================================================================')
   cb()
+})
+
+// [updates]
+// Will automatically update packages.json file with latest versions of all dependencies
+gulp.task('updates', function (cb) {
+  ncu.run({
+    // Always specify the path to the ./package.json file
+    packageFile: gulpPath.to.packageJson,
+    upgrade: true,
+    silent: false
+  })
+    .then(function (upgraded) {
+      console.log('\n\nDEPENDENCIES TO BE UPDATED:\n', upgraded)
+      cb()
+    })
 })
 
 // [unused]
@@ -325,13 +367,7 @@ gulp.task('unused', function (cb) {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // [watch]
 // Sets gulp watches on files and will launch tasks when they are changed
-gulp.task('watch', gulp.parallel(
-  'watch-views',
-  'watch-routes',
-  'watch-sass',
-  'watch-js',
-  'watch-assets'
-))
+gulp.task('watch', watch)
 
 // [browse]
 // Sets gulp watches on files and will launch tasks when they are changed
@@ -374,7 +410,7 @@ gulp.task('build', gulp.series(
 // [default]
 // Default gulp task when you only type 'gulp'
 gulp.task('default', gulp.series(
-  // 'build',
+  'build',
   'browse',
   'watch'
 ))

@@ -1,44 +1,43 @@
 {
-  "dependencies": {
-    "bootstrap": "3.3.6",
-    "cookie-parser": "~1.4.1",
-    "debug": "~2.2.0",
-    "express": "~4.13.1",
-    "morgan": "~1.7.0",
-    "pug": "2.0.0-alpha6"
-  },
-  "devDependencies": {
-    "browser-sync": "^2.12.5",
-    "del": "^2.2.0",
-    "gulp": "github:gulpjs/gulp#4.0",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-cached": "^1.1.0",
-    "gulp-clean-css": "^2.0.7",
-    "gulp-concat": "^2.6.0",
-    "gulp-depcheck": "^1.1.0",
-    "gulp-ignore": "^2.0.1",
-    "gulp-nodemon": "^2.0.6",
-    "gulp-nsp": "2.4.0",
-    "gulp-plumber": "^1.1.0",
-    "gulp-postcss": "6.1.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.1",
-    "gulp-sourcemaps": "1.6.0",
-    "gulp-uglify": "1.5.3",
-    "node-sass": "^3.7.0",
-    "path": "^0.12.7"
-  },
-  "name": "site-name-here",
-  "private": true,
-  "scripts": {
-    "start": "node ./bin/www.js"
-  },
-  "version": "0.0.0",
-  "main": "app.js",
-  "bin": {
-    "site-name-here": "www.js"
-  },
-  "author": "",
-  "license": "ISC",
-  "description": ""
+    "author": "Michael van Olden | emveeoh.com",
+    "dependencies": {
+        "bootstrap": "3.3.6",
+        "cookie-parser": "*",
+        "debug": "*",
+        "express": "*",
+        "morgan": "*",
+        "pug": "2.0.0-alpha7"
+    },
+    "description": "SaberEngineering.com",
+    "devDependencies": {
+        "browser-sync": "^2.12.8",
+        "del": "^2.2.0",
+        "gulp": "github:gulpjs/gulp#4.0",
+        "gulp-autoprefixer": "^3.1.0",
+        "gulp-cached": "^1.1.0",
+        "gulp-clean-css": "^2.0.7",
+        "gulp-concat": "^2.6.0",
+        "gulp-depcheck": "^1.1.0",
+        "gulp-ignore": "^2.0.1",
+        "gulp-nodemon": "^2.0.7",
+        "gulp-nsp": "^2.4.1",
+        "gulp-plumber": "^1.1.0",
+        "gulp-postcss": "^6.1.1",
+        "gulp-rename": "^1.2.2",
+        "gulp-sass": "^2.3.1",
+        "gulp-sourcemaps": "^1.6.0",
+        "gulp-uglify": "^1.5.3",
+        "node-sass": "^3.7.0",
+        "npm-autoinit": "0.2.0",
+        "npm-check-updates": "2.6.5",
+        "path": "^0.12.7"
+    },
+    "license": "ISC",
+    "main": "app.js",
+    "name": "saber-engineering",
+    "private": true,
+    "scripts": {
+        "start": "node ./bin/www.js"
+    },
+    "version": "1.0.0"
 }
